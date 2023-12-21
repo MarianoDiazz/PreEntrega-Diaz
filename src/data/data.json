@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "titulo": "Nike Air Force 1",
+        "categoria": "Zapatillas",
+        "descripcion": "Zapatillas de moda para hombre",
+        "precio": 154.999,
+        "imagen": "https://nikearprod.vtexassets.com/arquivos/ids/731940-1000-1000?v=638308289992930000&width=1000&height=1000&aspect=true"
+    },
+    {
+        "id": 2,
+        "titulo": "Nike Air Force 1 07",
+        "categoria": "Zapatillas",
+        "descripcion": "Zapatillas de moda para mujer",
+        "precio": 154.999,
+        "imagen": "https://nikearprod.vtexassets.com/arquivos/ids/680450-1000-1000?v=638224553594800000&width=1000&height=1000&aspect=true"
+    },
+    {
+        "id": 3,
+        "titulo": "Remera Just Do It",
+        "categoria": "Remeras",
+        "descripcion": "Remera de entrenamiento para hombre",
+        "precio": 54.999,
+        "imagen": "https://nikearprod.vtexassets.com/arquivos/ids/791451-1000-1000?v=638372880349330000&width=1000&height=1000&aspect=true"
+    },
+    {
+        "id": 4,
+        "titulo": "Nike Run 1",
+        "categoria": "Buzos",
+        "descripcion": "Buzo de running para hombre",
+        "precio": 64.999,
+        "imagen": "https://nikearprod.vtexassets.com/arquivos/ids/600646-1000-1000?v=638194207388100000&width=1000&height=1000&aspect=true"
+    },
+    {
+        "id": 5,
+        "titulo": "Nike Runner Jumper",
+        "categoria": "Zapatillas",
+        "descripcion": "Zapatillas de moda para hombre",
+        "precio": 154.999,
+        "imagen": "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw01eda722/products/NIDM0821-004/NIDM0821-004-1.JPG"
+    },
+    {
+        "id": 6,
+        "titulo": "Buzo Adidas Boca Juniors",
+        "categoria": "Buzos",
+        "descripcion": "Descubrí el Buzo Fútbol adidas Boca Gr Hombre y llevá tu pasión por el fútbol al siguiente nivel.",
+        "precio": 44.999,
+        "imagen": "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw81fc6d0b/products/ADHS6111/ADHS6111-1.JPG"
+    },
+    {
+        "id": 7,
+        "titulo": "Buzo Nike Urban",
+        "categoria": "Buzos",
+        "descripcion": "Buzo verde militar cuello redondo de algodon",
+        "precio": 34.999,
+        "imagen": "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw404d2221/products/NIBV2666-334/NIBV2666-334-1.JPG"
+    },
+    {
+        "id": 8,
+        "titulo": "Buzo Urbano Lotto",
+        "categoria": "Buzos",
+        "descripcion": "Buzo rosa con amplia capucha con ajuste personalizado ",
+        "precio": 54.999,
+        "imagen": "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw6f654354/products/LONISS230585/LONISS230585-1.JPG"
+    }
+]

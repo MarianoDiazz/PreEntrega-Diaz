@@ -1,23 +1,18 @@
+import { Box, Icon, Text } from '@chakra-ui/react';
 import React from 'react';
-import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 import { FiShoppingCart } from 'react-icons/fi';
 
 const CarWidget = () => {
     const itemCount = 0;
 
-    const popover = (
-        <Popover id="popover-basic">
-            <Popover.Body>{`Items en el carrito: ${itemCount}`}</Popover.Body>
-        </Popover>
-    );
 
     return (
-        <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-            <Button variant="light">
-                <FiShoppingCart className='fs-3' />
-                <span className="badge bg-danger">{itemCount}</span>
-            </Button>
-        </OverlayTrigger>
+        <Box p="5px" mr="20px">
+
+            <Icon as={FiShoppingCart} fontSize="2rem" />
+            <Text position="absolute" top="10" right="3" fontSize="20px" fontWeight="bold" bg="teal.300" p="2px" borderRadius="30px">{itemCount}</Text>
+        </Box>
+
     );
 };
 
