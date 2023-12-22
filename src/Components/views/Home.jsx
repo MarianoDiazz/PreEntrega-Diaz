@@ -1,12 +1,12 @@
 import React from 'react'
-import ItemListContainer from './ItemListContainer'
+import ItemListContainer from '../itemListContainer/ItemListContainer'
 import { Heading } from '@chakra-ui/react'
 
 const Home = () => {
     return (
         <div>
             <Heading>Hola</Heading>
-            {/* <ItemListContainer /> */}
+            <ItemListContainer />
         </div>
     )
 }

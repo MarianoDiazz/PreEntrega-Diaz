@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { obtenerItemPorId } from '../helpers/obtenerData'
+import { obtenerItemPorId } from '../../helpers/obtenerData'
 import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom'
 
@@ -17,10 +17,7 @@ const ItemDetailContainer = () => {
 
     return (
         <div>
-            {item &&
-
-                <ItemDetail item={item} />
-            }
+            {item && <ItemDetail item={item} />}
         </div>
     )
 }

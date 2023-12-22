@@ -1,9 +1,9 @@
 import React from 'react'
 import { Flex, Spacer, Box, Center, Button, Heading, Menu, MenuItem, MenuList, MenuButton } from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons'
-import CarWidget from './CarWidget'
+import CarWidget from '../cart/CarWidget'
 import { Link } from 'react-router-dom'
-import  logo  from "../Components/img/logo.png"
+import logo from "../navBar/logo.png"
 const NavBar = () => {
     return (
         <div>
@@ -21,15 +21,21 @@ const NavBar = () => {
                             Categorias
                         </MenuButton>
                         <MenuList>
-                            <MenuItem>
-                                <Link to={"/categorias/remeras"}>Remeras</Link>
-                            </MenuItem>
-                            <MenuItem>
-                                <Link to={"/categorias/zapatillas"}>Zapatillas</Link>
-                            </MenuItem>
-                            <MenuItem>
-                            <Link to={"/categorias/buzos"}>Buzos</Link>
-                            </MenuItem>
+                            <Link to={"/categorias/remeras"}>
+                                <MenuItem>
+                                    Remeras
+                                </MenuItem>
+                            </Link>
+                            <Link to={"/categorias/zapatillas"}>
+                                <MenuItem>
+                                    Zapatillas
+                                </MenuItem>
+                            </Link>
+                            <Link to={"/categorias/buzos"}>
+                                <MenuItem>
+                                    Buzos
+                                </MenuItem>
+                            </Link>
                         </MenuList>
                     </Menu>
                 </Box>

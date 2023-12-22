@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import '../index.css'
 import ItemList from './ItemList';
-import { obtenerDatos } from '../helpers/obtenerData';
+import { obtenerDatos } from '../../helpers/obtenerData';
 import { useParams } from 'react-router-dom';
 
 const ItemListContainer = ({ greeting }) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, Heading } from '@chakra-ui/react';
 import Item from './Item';
-import { capitalizar } from '../helpers/capitalizar';
+import { capitalizar } from '../../helpers/capitalizar';
 
 const ItemList = ({ productos, titulo }) => {
     return (
