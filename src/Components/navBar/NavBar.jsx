@@ -7,17 +7,16 @@ import logo from "../navBar/logo.png"
 const NavBar = () => {
     return (
         <div>
-            <Flex bgColor="#F1EFE7" justify='space-between' align='center' >
-                <Box w="200px">
+            <Flex bgColor="#F1EFE7" align='center' >
+                <Box maxW="200px">
                     <Link to={"/"}>
-                        <img src={logo} alt="" />
+                        <img src={logo} alt="logo ecommerce react" />
                     </Link>
                 </Box>
                 <Spacer />
                 <Box>
-
                     <Menu>
-                        <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                        <MenuButton bg="blue.200" as={Button} rightIcon={<ChevronDownIcon />}>
                             Categorias
                         </MenuButton>
                         <MenuList>
@@ -45,6 +44,7 @@ const NavBar = () => {
                         <CarWidget />
                     </Link>
                 </Box>
+                
             </Flex>
         </div>
     )

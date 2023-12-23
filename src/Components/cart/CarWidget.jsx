@@ -10,7 +10,7 @@ const CarWidget = () => {
         <Box p="5px" mr="20px">
 
             <Icon as={FiShoppingCart} fontSize="2rem" />
-            <Text position="absolute" top="10" right="3" fontSize="20px" fontWeight="bold" bg="teal.300" p="2px" borderRadius="30px">{itemCount}</Text>
+            <Text fontSize="20px" display="inline" fontWeight="bold" bg="red.300" p="2px" borderRadius="15px">{itemCount}</Text>
         </Box>
 
     );
