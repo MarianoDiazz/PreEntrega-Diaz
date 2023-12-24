@@ -1,8 +1,16 @@
-# React + Vite
+# Tienda con react
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ecommerce desarrollado en React, haciendo uso de las bibliotecas Chakra UI y React Router DOM para el curso de CoderHouse.
 
-Currently, two official plugins are available:
+## Tecnologías Utilizadas
+- React
+- Chakra UI
+- React Router DOM
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Funcionalidades Principales
+- Navegación entre categorías y detalles de productos con React Router DOM.
+- Estilo moderno y responsive con Chakra UI.
+
+## Capturas de Pantalla
+![GIF Pantalla](./src/assets/chrome-capture-2023-12-21.gif)
