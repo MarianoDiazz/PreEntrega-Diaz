@@ -13,4 +13,4 @@ Ecommerce desarrollado en React, haciendo uso de las bibliotecas Chakra UI y Rea
 - Estilo moderno y responsive con Chakra UI.
 
 ## Capturas de Pantalla
-![GIF Pantalla](./src/assets/chrome-capture-2023-12-21.gif)
+![GIF Pantalla](./src/assets/gif.gif)
