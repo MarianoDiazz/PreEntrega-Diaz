@@ -1,6 +1,7 @@
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Card, CardBody, CardFooter, Container, Heading, Image, Spacer, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
+import ItemCount from './ItemCount'
 
 
 const ItemDetail = ({ item }) => {
@@ -47,6 +48,7 @@ const ItemDetail = ({ item }) => {
                     </CardFooter>
                 </Stack>
             </Card>
+                <ItemCount/>
         </Container>
     )
 }
