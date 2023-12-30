@@ -7,7 +7,7 @@ import ItemCount from './ItemCount'
 const ItemDetail = ({ item }) => {
 
     return (
-        <Container maxW='960px'>
+        <Container maxW='960px' my="40px" >
             <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
                 <BreadcrumbItem>
                     <BreadcrumbLink href='/'>Home</BreadcrumbLink>
@@ -22,10 +22,12 @@ const ItemDetail = ({ item }) => {
                 direction={{ base: 'column', sm: 'row' }}
                 overflow='hidden'
                 variant='outline'
+                justify="center"
+                mt="10px"
             >
                 <Image
                     objectFit='cover'
-                    maxW={{ base: '100%', sm: '200px' }}
+                    maxW={{ base: '100%', sm: '400px' }}
                     src={item.imagen}
                     alt={item.descripcion}
                 />
@@ -41,14 +43,10 @@ const ItemDetail = ({ item }) => {
                     </CardBody>
 
                     <CardFooter>
-
-                        <Button variant='solid' colorScheme='blue'>
-                            Add to cart
-                        </Button>
+                        <ItemCount />
                     </CardFooter>
                 </Stack>
             </Card>
-                <ItemCount/>
         </Container>
     )
 }
