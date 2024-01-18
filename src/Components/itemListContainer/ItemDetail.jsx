@@ -1,11 +1,10 @@
 import { ChevronRightIcon } from '@chakra-ui/icons'
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Card, CardBody, CardFooter, Container, Heading, Image, Spacer, Stack, Text } from '@chakra-ui/react'
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Card, CardBody, CardFooter, Container, Heading, Image, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
 import ItemCount from './ItemCount'
 
 
 const ItemDetail = ({ item }) => {
-
     return (
         <Container maxW='960px' my="40px" >
             <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
@@ -43,7 +42,7 @@ const ItemDetail = ({ item }) => {
                     </CardBody>
 
                     <CardFooter>
-                        <ItemCount />
+                        <ItemCount item={item} />
                     </CardFooter>
                 </Stack>
             </Card>

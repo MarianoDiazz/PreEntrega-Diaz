@@ -1,15 +1,15 @@
-import React from 'react';
 import NavBar from './Components/navBar/NavBar';
 import ItemListContainer from './Components/itemListContainer/ItemListContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Cart from './Components/cart/Cart';
 import ItemDetailContainer from './Components/itemListContainer/ItemDetailContainer';
-import ShoppingCartContext from './context/ShoppingCartContext'
+import {ShoppingCartProvider } from './context/CartContext';
 function App() {
-
+ 
   return (
-      <BrowserRouter>
-    <ShoppingCartContext>
+    <BrowserRouter>
+    <ShoppingCartProvider>
+
         <NavBar />
         <Routes>
           <Route path='/' element={<ItemListContainer />} />
@@ -17,8 +17,8 @@ function App() {
           <Route path='/product/:id' element={<ItemDetailContainer />} />
           <Route path='/cart' element={<Cart />} />
         </Routes>
-    </ShoppingCartContext>
-      </BrowserRouter>
+    </ShoppingCartProvider>
+    </BrowserRouter>
   )
 }
 
