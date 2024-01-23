@@ -1,33 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
-import { obtenerDatos } from '../../helpers/obtenerData';
 import { useParams } from 'react-router-dom';
+import { collection, getDocs, getFirestore } from "firebase/firestore"
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = () => {
 
     const [productos, setProductos] = useState([])
     const [titulo, SetTitulo] = useState('Productos')
     const categoria = useParams().categoria
+    console.log(categoria);
 
     useEffect(() => {
-        obtenerDatos()
-            .then((res) => {
-                if (categoria) {
-                    setProductos(res.filter((p) => p.categoria.toLowerCase() === categoria.toLowerCase()))
-                    SetTitulo(categoria)
-                    console.log(res);
-                } else {
-                    setProductos(res)
-                    SetTitulo('Productos')
-                }
-
-
+        const db = getFirestore()
+        const itemCollection = collection(db, "products")
+        getDocs(itemCollection).then((snapshot) => {
+            const products = snapshot.docs.map((doc) => {
+                return { ...doc.data(), id: doc.id }
             })
+            setProductos(products);
+        })
     }, [categoria])
+
+
 
     return (
         <div className='containerList' >
-            <h2 className='greeting'>{greeting}</h2>
             <ItemList productos={productos} titulo={titulo} />
         </div>
     );

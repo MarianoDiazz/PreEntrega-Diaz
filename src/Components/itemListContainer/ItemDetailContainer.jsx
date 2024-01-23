@@ -1,25 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import { obtenerItemPorId } from '../../helpers/obtenerData'
-import ItemDetail from './ItemDetail'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import ItemDetail from './ItemDetail';
+import { useParams } from 'react-router-dom';
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
-    const [item, setItem] = useState(null)
-    const id = useParams().id
+    const [item, setItem] = useState(null);
+    const { id } = useParams();
+    console.log(id);
 
     useEffect(() => {
-        obtenerItemPorId(Number(id))
-            .then((res) => {
-                setItem(res)
-            })
+        const db = getFirestore();
+        const oneItem = doc(db, "products", id);
+        console.log(oneItem);
 
-    }, [id])
+        getDoc(oneItem).then((snapshot) => {
+            setItem(
+                { ...snapshot.data(), id: snapshot.id }
+            )
+        });
+    }, [id]);
 
     return (
         <div>
             {item && <ItemDetail item={item} />}
         </div>
-    )
-}
+    );
+};
 
-export default ItemDetailContainer
+export default ItemDetailContainer;

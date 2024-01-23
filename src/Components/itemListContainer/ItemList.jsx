@@ -10,7 +10,7 @@ const ItemList = ({ productos, titulo }) => {
             <Flex gap="10px" justify="center" direction="row" wrap="wrap" align="end">
                 {productos.map((p) => (
                     <Item
-                        key={p.id}  // Adding a unique key for each item is good practice
+                        key={p.titulo}
                         titulo={p.titulo}
                         descripcion={p.descripcion}
                         precio={p.precio}
