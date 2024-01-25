@@ -1,53 +1,41 @@
-import React from 'react'
-import { Flex, Spacer, Box, Center, Button, Heading, Menu, MenuItem, MenuList, MenuButton } from '@chakra-ui/react'
-import { ChevronDownIcon } from '@chakra-ui/icons'
-import CarWidget from '../cart/CarWidget'
-import { Link } from 'react-router-dom'
-import logo from "../navBar/logo.png"
+import React from 'react';
+import { NavLink, Link } from 'react-router-dom';
+import CarWidget from '../cart/CarWidget';
+import logo from "../navBar/logo.png";
+import './navBar.css'
+
 const NavBar = () => {
     return (
-        <div>
-            <Flex bgColor="#F1EFE7" align='center' >
-                <Box maxW="200px">
-                    <Link to={"/"}>
-                        <img src={logo} alt="logo ecommerce react" />
-                    </Link>
-                </Box>
-                <Spacer />
-                <Box>
-                    <Menu>
-                        <MenuButton bg="blue.200" as={Button} rightIcon={<ChevronDownIcon />}>
-                            Categorias
-                        </MenuButton>
-                        <MenuList>
-                            <Link to={"/categorias/remeras"}>
-                                <MenuItem>
-                                    Remeras
-                                </MenuItem>
-                            </Link>
-                            <Link to={"/categorias/zapatillas"}>
-                                <MenuItem>
-                                    Zapatillas
-                                </MenuItem>
-                            </Link>
-                            <Link to={"/categorias/buzos"}>
-                                <MenuItem>
-                                    Buzos
-                                </MenuItem>
-                            </Link>
-                        </MenuList>
-                    </Menu>
-                </Box>
-                <Spacer />
-                <Box>
-                    <Link to={"/cart"}>
-                        <CarWidget />
-                    </Link>
-                </Box>
-                
-            </Flex>
+        <div className="navbar-container">
+            <div className="navbar-brand">
+                <Link to={"/"}>
+                    <img src={logo} alt="logo ecommerce react" />
+                </Link>
+            </div>
+            <div className="navbar-links">
+                <NavLink to="/" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>
+                    Todos
+                </NavLink>
+
+                <NavLink to="/categorias/remeras" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>
+                    Remeras
+                </NavLink>
+
+                <NavLink to="/categorias/zapatillas" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>
+                    Zapatillas
+                </NavLink>
+
+                <NavLink to="/categorias/buzos" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>
+                    Buzos
+                </NavLink>
+            </div>
+            <div className="navbar-cart">
+                <Link to={"/cart"}>
+                    <CarWidget />
+                </Link>
+            </div>
         </div>
-    )
+    );
 }
 
-export default NavBar
+export default NavBar;

@@ -1,0 +1,45 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F1EFE7;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+    width: 150px;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    justify-content: center;
+}
+
+.navbar-link {
+    color: #2c3e50;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px;
+    transition: color 0.3s, border-bottom 0.3s, transform 0.3s;
+    border-bottom: 2px solid transparent;
+    font-weight: normal;
+}
+
+.navbar-link:hover {
+    color: #3498db;
+    border-bottom: 2px solid #3498db;
+    transform: scale(1.05);
+}
+
+.navbar-link.active {
+    font-weight: bold;
+    border-bottom: 2px solid #3498db;
+
+}
+
+.navbar-cart {
+    margin-left: auto;
+}

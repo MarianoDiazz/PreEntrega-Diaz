@@ -12,6 +12,9 @@ import {
     Spinner,
     Text,
     useToast,
+    Alert,
+    AlertIcon,
+    Heading
 } from '@chakra-ui/react';
 import { CartContext } from '../../context/CartContext';
 
@@ -38,7 +41,7 @@ const Form = () => {
         const summary = storedCart.map(item => `${item.titulo} x ${item.contador}`);
         setCartSummary([
             { title: 'Resumen de compra:', content: summary.join(', ') },
-            { title: 'Total a pagar:', content: `$${total.toFixed(2)}` },
+            { title: 'Total a pagar:', content: `$${total.toFixed(3)}` },
         ]);
         setTotalPrice(total);
     }, []);
@@ -107,7 +110,8 @@ const Form = () => {
     };
 
     return (
-        <Container maxW="container.xl" mt="6">
+        <Container maxW="container.xl" mt="6" minH="70vh">
+            <Heading textAlign="center" my={8}>Finalizar compra</Heading>
             <Grid templateColumns="repeat(2, 1fr)" gap={6}>
                 <GridItem colSpan={1}>
                     <Box p={4} borderWidth="1px" borderRadius="lg">
@@ -162,8 +166,12 @@ const Form = () => {
                                 {isLoading ? <Spinner size="sm" /> : 'Enviar'}
                             </Button>
                         </form>
-                        {orderId && <Text mt="4">ID de la orden: {orderId}</Text>}
-                    </Box>
+                        {orderId && (
+                            <Alert status="success" mt="4">
+                                <AlertIcon />
+                                ¡Gracias por tu compra! Tu ID de compra es: {orderId}
+                            </Alert>
+                        )}                    </Box>
                 </GridItem>
             </Grid>
         </Container>

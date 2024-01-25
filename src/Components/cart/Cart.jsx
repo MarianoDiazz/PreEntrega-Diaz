@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
-import { Box, Button, Container, Table, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react';
+import { Box, Button, Container, Heading, Table, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react';
 import Swal from 'sweetalert2';
 import { FaTrash } from 'react-icons/fa';
 const Cart = () => {
@@ -60,7 +60,9 @@ const Cart = () => {
     };
 
     return (
-        <Container maxWidth="container.xl">
+        <Container maxWidth="container.xl" minH="75vh">
+            <Heading textAlign="center" my="3rem"> Mi compra</Heading>
+            
             {cart.length > 0 ? (
                 <Table variant="simple">
                     <Thead>
@@ -77,7 +79,7 @@ const Cart = () => {
                         {cart.map((p) => (
                             <Tr key={p.id}>
                                 <Td>{p.titulo}</Td>
-                                <Td>${p.precio.toFixed(3)}</Td>
+                                <Td>${p.precio}</Td>
                                 <Td>
                                     <Button onClick={() => handleUpdateQuantity(p.id, p.contador - 1, p.titulo)}>-</Button>
                                     {p.contador}
@@ -85,7 +87,7 @@ const Cart = () => {
                                 </Td>
                                 <Td>${(p.precio * p.contador).toFixed(3)}</Td>
                                 <Td>
-                                <Button bg="red.400" onClick={() => handleRemoveFromCart(p.id, p.titulo)}>
+                                    <Button bg="red.400" onClick={() => handleRemoveFromCart(p.id, p.titulo)}>
                                         <FaTrash />
                                     </Button>
                                 </Td>
@@ -101,18 +103,26 @@ const Cart = () => {
                 </Box>
             )}
             {cart.length > 0 && (
-                <>
-                    <Text fontSize={20} fontWeight={500} mt={4}>Total de la compra: $ {totalPrice().toFixed(3)}</Text>
-                    <Button mt={4} onClick={handleClearCart}>
-                        Vaciar carrito
-                    </Button>
-                    <Button mt={4} bg="green.400">
-                        <Link to={"/form"}>Continuar</Link>
-                    </Button>
-                </>
+                <Box mt={4} display="flex" justifyContent="space-between" alignItems="center">
+                    <Box>
+                        <Button as={Link} to="/" colorScheme="teal" variant="outline" mr={4}>
+                            Continuar comprando
+                        </Button>
+                        <Button colorScheme="red" variant="outline" onClick={handleClearCart}>
+                            Vaciar carrito
+                        </Button>
+                    </Box>
+                    <Box textAlign="right">
+                        <Text fontSize="lg" fontWeight="bold">
+                            Total de la compra: $ {totalPrice().toFixed(3)}
+                        </Text>
+                        <Button as={Link} to="/form" colorScheme="teal" mt={4}>
+                            Finalizar compra
+                        </Button>
+                    </Box>
+                </Box>
             )}
         </Container>
     );
 };
-
 export default Cart;
