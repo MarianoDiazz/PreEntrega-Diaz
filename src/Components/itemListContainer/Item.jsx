@@ -1,45 +1,49 @@
-import React from 'react'
-import { Card, CardBody, Heading, Image, Stack, Text, Divider, CardFooter, Button, ButtonGroup } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import {
+    Box,
+    Card,
+    CardBody,
+    CardFooter,
+    Heading,
+    Image,
+    Stack,
+    Text,
+    Divider,
+} from '@chakra-ui/react';
 
-const Item = ({ titulo, descripcion, precio, imagen, categoria, id }) => {
+const Item = ({ titulo, categoria, precio, imagen, id }) => {
     return (
-        <div>
-            <Card maxW='sm' bg="blue.200">
+        <Box margin="5px">
+            <Link to={`/product/${id}`} style={{ textDecoration: 'none' }}>
+                <Card
+                    maxW="sm"
+                    bgColor="#F1EFE7"
+                    color="black"
+                    boxShadow="md"
+                    borderRadius="lg"
+                    transition="transform 0.2s"
+                    _hover={{ transform: 'scale(1.02)', boxShadow: '2px 5px 7px -3px rgba(0,0,0,0.59)' }}
+                >
+                <Image src={imagen} alt={titulo} borderRadius="lg" />
                 <CardBody>
-                    <Image
-                        src={imagen}
-                        alt={descripcion}
-                        borderRadius='lg'
-                    />
-                    <Stack mt='6' spacing='3' minH="200px" justify="space-between">
-                        <Heading size='md'>{titulo}</Heading>
-                        <Text>
-                            {descripcion}
-                        </Text>
-                        <Text color="teal.700" fontWeight="700">
-                            Categoria: {categoria}
-                        </Text>
-                        <Text color='blue.900' letterSpacing="1.5px" fontFamily="fantasy" fontSize='2xl'>
-                            ${precio}
+                    <Stack mt="4" spacing="2">
+                        <Heading size="md">{titulo}</Heading>
+                        <Text fontSize="sm" color="gray.600">
+                            Categoría: {categoria}
                         </Text>
                     </Stack>
                 </CardBody>
                 <Divider />
-                <CardFooter>
-                    <ButtonGroup spacing='2'>
-                        <Button variant='solid' colorScheme='blue'>
-                            <Link to={`/product/${id}`}>Ver mas
-                            </Link>
-                        </Button>
-                        <Button variant='ghost' colorScheme='blue'>
-                            Add to cart
-                        </Button>
-                    </ButtonGroup>
+                <CardFooter justify="center">
+                    <Text fontSize="xl" fontWeight="bold" color="teal.500">
+                        ${precio}
+                    </Text>
                 </CardFooter>
             </Card>
-        </div>
-    )
-}
+        </Link>
+        </Box >
+    );
+};
 
-export default Item
+export default Item;

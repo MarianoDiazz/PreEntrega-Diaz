@@ -16,17 +16,14 @@ const NavBar = () => {
                 <NavLink to="/" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>
                     Todos
                 </NavLink>
-
-                <NavLink to="/categorias/remeras" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>
-                    Remeras
+                <NavLink to="/categorias/ropa" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>
+                    Ropa
                 </NavLink>
-
-                <NavLink to="/categorias/zapatillas" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>
-                    Zapatillas
+                <NavLink to="/categorias/calzado" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>
+                    Calzado
                 </NavLink>
-
-                <NavLink to="/categorias/buzos" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>
-                    Buzos
+                <NavLink to="/categorias/accesorios" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>
+                    Accesorios
                 </NavLink>
             </div>
             <div className="navbar-cart">

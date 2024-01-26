@@ -1,40 +1,57 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../context/CartContext';
-import { Box, Button, Container, Heading, Table, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react';
+import {
+    Box,
+    Button,
+    ButtonGroup,
+    Container,
+    Heading,
+    Image,
+    Table,
+    Tbody,
+    Td,
+    Text,
+    Th,
+    Thead,
+    Tr,
+    VStack,
+} from '@chakra-ui/react';
 import Swal from 'sweetalert2';
 import { FaTrash } from 'react-icons/fa';
+import { CartContext } from '../../context/CartContext';
+
 const Cart = () => {
     const { cart, totalPrice, clearCart, removeFromCart, updateQuantity } = useContext(CartContext);
-
+    const selectedTalle = cart.length > 0 ? cart[0].selectedTalle : null;
+    const filteredCart = selectedTalle ? cart.filter((item) => item.selectedTalle === selectedTalle) : cart;
     const handleRemoveFromCart = (productId, productName) => {
         Swal.fire({
             title: `¿Estás seguro de eliminar "${productName}" del carrito?`,
-            icon: "question",
+            icon: 'question',
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Sí, eliminar",
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, eliminar',
         }).then((result) => {
             if (result.isConfirmed) {
                 removeFromCart(productId);
-                Swal.fire("Eliminado", `"${productName}" ha sido eliminado del carrito.`, "success");
+                Swal.fire('Eliminado', `"${productName}" ha sido eliminado del carrito.`, 'success');
             }
         });
     };
 
     const handleClearCart = () => {
         Swal.fire({
-            title: "¿Estás seguro de vaciar el carrito?",
-            icon: "question",
+            title: '¿Estás seguro de vaciar el carrito?',
+            icon: 'question',
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Sí, vaciar",
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, vaciar',
         }).then((result) => {
             if (result.isConfirmed) {
                 clearCart();
-                Swal.fire("Carrito vaciado", "Tu carrito ha sido vaciado correctamente.", "success");
+                Swal.fire('Carrito vaciado', 'Tu carrito ha sido vaciado correctamente.', 'success');
             }
         });
     };
@@ -43,15 +60,15 @@ const Cart = () => {
         if (newQuantity < 1) {
             Swal.fire({
                 title: `¿Estás seguro de eliminar "${productName}" del carrito?`,
-                icon: "question",
+                icon: 'question',
                 showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Sí, eliminar",
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, eliminar',
             }).then((result) => {
                 if (result.isConfirmed) {
                     removeFromCart(productId);
-                    Swal.fire("Eliminado", `"${productName}" ha sido eliminado del carrito.`, "success");
+                    Swal.fire('Eliminado', `"${productName}" ha sido eliminado del carrito.`, 'success');
                 }
             });
         } else {
@@ -61,13 +78,16 @@ const Cart = () => {
 
     return (
         <Container maxWidth="container.xl" minH="75vh">
-            <Heading textAlign="center" my="3rem"> Mi compra</Heading>
-            
+            <Heading textAlign="center" my="3rem">
+                Mi compra
+            </Heading>
+
             {cart.length > 0 ? (
                 <Table variant="simple">
                     <Thead>
                         <Tr>
                             <Th>Producto</Th>
+                            <Th>Talle</Th>
                             <Th>Precio</Th>
                             <Th>Cantidad</Th>
                             <Th>Precio total</Th>
@@ -79,6 +99,7 @@ const Cart = () => {
                         {cart.map((p) => (
                             <Tr key={p.id}>
                                 <Td>{p.titulo}</Td>
+                                <Td>{p.selectedTalle}</Td>
                                 <Td>${p.precio}</Td>
                                 <Td>
                                     <Button onClick={() => handleUpdateQuantity(p.id, p.contador - 1, p.titulo)}>-</Button>
@@ -102,6 +123,7 @@ const Cart = () => {
                     </Text>
                 </Box>
             )}
+
             {cart.length > 0 && (
                 <Box mt={4} display="flex" justifyContent="space-between" alignItems="center">
                     <Box>
@@ -125,4 +147,5 @@ const Cart = () => {
         </Container>
     );
 };
+
 export default Cart;

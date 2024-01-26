@@ -1,53 +1,93 @@
-import { ChevronRightIcon } from '@chakra-ui/icons'
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Card, CardBody, CardFooter, Container, Heading, Image, Stack, Text } from '@chakra-ui/react'
-import React from 'react'
-import ItemCount from './ItemCount'
-
+import { ChevronRightIcon } from '@chakra-ui/icons';
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    Card,
+    Spacer,
+    Container,
+    Heading,
+    Image,
+    Stack,
+    Text,
+    VStack,
+    Box,
+    Button,
+    ButtonGroup,
+} from '@chakra-ui/react';
+import React, { useState } from 'react';
+import ItemCount from './ItemCount';
 
 const ItemDetail = ({ item }) => {
+    const [selectedTalle, setSelectedTalle] = useState(null);
+
+    const handleTalleSelect = (talle) => {
+        setSelectedTalle(talle);
+    };
+    console.log(`seleccionaste ${selectedTalle}`);
+
     return (
-        <Container maxW='960px' my="40px" >
-            <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
+        <Container maxW="960px" my="6rem">
+            <Breadcrumb spacing="8px" color="teal" fontSize="19px" separator={<ChevronRightIcon/>}>
                 <BreadcrumbItem>
-                    <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+                    <BreadcrumbLink fontWeight="600" href="/">
+                        Home
+                    </BreadcrumbLink>
                 </BreadcrumbItem>
-
-
                 <BreadcrumbItem isCurrentPage>
-                    <BreadcrumbLink href='#'>{item.categoria}</BreadcrumbLink>
+                    <BreadcrumbLink color="gray.600" href="#">
+                        {item.categoria}
+                    </BreadcrumbLink>
                 </BreadcrumbItem>
             </Breadcrumb>
-            <Card
-                direction={{ base: 'column', sm: 'row' }}
-                overflow='hidden'
-                variant='outline'
-                justify="center"
-                mt="10px"
-            >
-                <Image
-                    objectFit='cover'
-                    maxW={{ base: '100%', sm: '400px' }}
-                    src={item.imagen}
-                    alt={item.descripcion}
-                />
-
-                <Stack>
-                    <CardBody>
-                        <Heading size='md'>{item.titulo}</Heading>
-
-                        <Text py='2'>
-                            {item.descripcion}
+            <Card mt="10px" borderRadius="lg" boxShadow="lg">
+                <Stack direction={{ base: 'column', sm: 'row' }}>
+                    <Image
+                        objectFit="cover"
+                        maxW={{ base: '100%', sm: '400px' }}
+                        src={item.imagen}
+                        alt={item.descripcion}
+                        borderTopRadius="lg"
+                    />
+                    <VStack align="start" spacing="4" p="4" flex="1">
+                        <Heading size="lg">{item.titulo}</Heading>
+                        <Text fontSize="1.5rem" fontWeight="bold" color="teal.400">
+                            Precio: $ {item.precio}
                         </Text>
-                        <Text fontSize="1.2rem" fontWeight="bold" color="teal.400">Precio: $ {item.precio}</Text>
-                    </CardBody>
-
-                    <CardFooter>
-                        <ItemCount item={item} />
-                    </CardFooter>
+                        {item.talles && item.talles.length > 0 && (
+                            <Box>
+                                <Text fontSize="lg" fontWeight="500">
+                                    Talles disponibles:
+                                </Text>
+                                <ButtonGroup spacing="2">
+                                    {item.talles.map((talle) => (
+                                        <Button
+                                            key={talle}
+                                            variant={selectedTalle === talle ? 'solid' : 'outline'}
+                                            colorScheme="teal"
+                                            onClick={() => handleTalleSelect(talle)}
+                                        >
+                                            {talle}
+                                        </Button>
+                                    ))}
+                                </ButtonGroup>
+                            </Box>
+                        )}
+                        <Spacer />
+                        <Box>
+                            <ItemCount item={{ ...item, selectedTalle }} />
+                        </Box>
+                    </VStack>
                 </Stack>
+                <Box p="4" mt="10px">
+                    <Text fontSize="lg" fontWeight="bold">
+                        Descripción:
+                    </Text>
+                    <Text fontSize="md">{item.descripcion}</Text>
+                </Box>
             </Card>
         </Container>
-    )
-}
+    );
+};
 
-export default ItemDetail
+export default ItemDetail;

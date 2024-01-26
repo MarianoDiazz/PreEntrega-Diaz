@@ -1,13 +1,13 @@
-import { Button, Flex, useToast } from '@chakra-ui/react'
-import React, { useContext, useState } from 'react'
-import { CartContext } from '../../context/CartContext'
+import { Button, Flex, useToast } from '@chakra-ui/react';
+import React, { useContext, useState } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 const ItemCount = ({ item }) => {
-  const { cart, setCart } = useContext(CartContext)
-  const [contador, setContador] = useState(1)
-  const toast = useToast()
+  const { cart, setCart } = useContext(CartContext);
+  const [contador, setContador] = useState(1);
+  const toast = useToast();
 
-  function agregarItem() {
+  const agregarItem = () => {
     const itemAgregado = { ...item, contador };
     const newCart = [...cart];
 
@@ -21,7 +21,7 @@ const ItemCount = ({ item }) => {
         status: 'success',
         duration: 3000,
         isClosable: true,
-        position: "top-right"
+        position: 'top-right',
       });
     } else {
       newCart.push(itemAgregado);
@@ -31,35 +31,52 @@ const ItemCount = ({ item }) => {
         status: 'success',
         duration: 3000,
         isClosable: true,
-        position: "top-right"
+        position: 'top-right',
       });
     }
     setCart(newCart);
-  }
+  };
 
   const sumar = () => {
-    setContador(contador + 1)
+    setContador(contador + 1);
   };
 
   const restar = () => {
     if (contador > 1) {
-      setContador(contador - 1)
+      setContador(contador - 1);
     }
   };
 
   return (
-    <Flex gap="5px" align="center">
-      <Button bg="red.400" onClick={restar}>
+    <Flex align="center">
+      <Button
+        colorScheme="purple"
+        variant="outline"
+        onClick={restar}
+        _hover={{ bg: 'purple.500', color: 'white' }}
+      >
         -
       </Button>
-      <Button variant="solid" onClick={agregarItem}>
+      <Button
+        colorScheme='purple'
+        variant="solid"
+        onClick={agregarItem}
+        ml="2"
+        _hover={{ bg: 'purple.300' }}
+      >
         Agregar {contador} productos
       </Button>
-      <Button bg="green.400" onClick={sumar}>
+      <Button
+        colorScheme="purple"
+        variant="outline"
+        onClick={sumar}
+        ml="2"
+        _hover={{ bg: 'purple.500', color: 'white' }}
+      >
         +
       </Button>
     </Flex>
   );
 };
 
-export default ItemCount
+export default ItemCount;
