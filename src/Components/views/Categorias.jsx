@@ -5,7 +5,6 @@ import ItemList from './ItemList';
 const Categorias = ({ productos }) => {
     const { categoria } = useParams();
 
-    // Filtrar productos por categoría
     const filteredProducts = productos.filter(product => product.categoria === categoria);
 
     return (

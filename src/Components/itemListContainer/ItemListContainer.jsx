@@ -24,7 +24,7 @@ const ItemListContainer = () => {
                     .filter(producto => !categoria || producto.categoria.toLowerCase() === categoria.toLowerCase());
 
                 setProductos(productosData);
-                setTitulo(categoria ? categoria : 'Productos');
+                setTitulo(categoria ? categoria : 'Todos los productos');
             } catch (error) {
                 console.error('Error al cargar los productos:', error.message);
             } finally {

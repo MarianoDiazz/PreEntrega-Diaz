@@ -6,7 +6,7 @@ import { capitalizar } from '../../helpers/capitalizar';
 const ItemList = ({ productos, titulo }) => {
     return (
         <div className="">
-            <Heading textAlign="center" my="50px">{capitalizar(titulo)}</Heading>
+            <Heading color="teal" fontWeight="bold"textAlign="center" my="50px">{capitalizar(titulo)}</Heading>
             <Flex gap="10px" justify="center" direction="row" wrap="wrap" align="end">
                 {productos.map((p) => (
                     <Item
