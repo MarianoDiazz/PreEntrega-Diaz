@@ -6,6 +6,7 @@ import ItemDetailContainer from './Components/itemListContainer/ItemDetailContai
 import { ShoppingCartProvider } from './context/CartContext';
 import Form from './Components/views/Form';
 import Footer from './Components/Footer/Footer';
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 function App() {
 
   return (

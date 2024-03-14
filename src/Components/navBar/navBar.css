@@ -1,14 +1,15 @@
-.navbar-container {
+.navbar-desktop {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #F1EFE7;
+    background-color: #ffffff;
     padding: 10px 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand img {
-    width: 150px;
+    width: 5rem;
+    border-radius: 30%;
 }
 
 .navbar-links {
@@ -42,4 +43,15 @@
 
 .navbar-cart {
     margin-left: auto;
+}
+.mobile{
+    display: none;
+}
+@media screen and (width<600px){
+.mobile{
+    display: block;
+}
+.navbar-desktop{
+    display: none;
+}
 }
