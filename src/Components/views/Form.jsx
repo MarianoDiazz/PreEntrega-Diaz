@@ -7,6 +7,7 @@ import {
     FormControl,
     FormLabel,
     Grid,
+    Flex,
     GridItem,
     Input,
     Spinner,
@@ -112,8 +113,8 @@ const Form = () => {
     return (
         <Container maxW="container.xl" mt="6" minH="70vh">
             <Heading textAlign="center" my={8}>Finalizar compra</Heading>
-            <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-                <GridItem colSpan={1}>
+            <Flex className='formulario' gap={6} justify='center'>
+                <Box colSpan={1} minW='sm'>
                     <Box p={4} borderWidth="1px" borderRadius="lg">
                         {cartSummary.map((section, index) => (
                             <Box key={index}>
@@ -122,8 +123,8 @@ const Form = () => {
                             </Box>
                         ))}
                     </Box>
-                </GridItem>
-                <GridItem colSpan={1}>
+                </Box>
+                <Box colSpan={1} minW='sm'>
                     <Box p={4} borderWidth="1px" borderRadius="lg">
                         <form onSubmit={handleSubmit}>
                             <FormControl mb="4">
@@ -172,8 +173,8 @@ const Form = () => {
                                 ¡Gracias por tu compra! Tu ID de compra es: {orderId}
                             </Alert>
                         )}                    </Box>
-                </GridItem>
-            </Grid>
+                </Box>
+            </Flex>
         </Container>
     );
 };

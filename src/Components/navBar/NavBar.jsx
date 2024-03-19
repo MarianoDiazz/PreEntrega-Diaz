@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Box } from '@chakra-ui/react';
+import { Box, Spacer } from '@chakra-ui/react';
 
 // Define las rutas una sola vez para reutilizarlas en ambos navbars
 const navLinks = [
@@ -47,16 +47,17 @@ const NavBar = () => {
                                 <img src={logo} alt="logo ecommerce react" />
                             </Link>
                         </Navbar.Brand>
+                        <Spacer />
+                        <Box display="flex" alignItems="center" W='5px'>
+                            <Link to={"/cart"} className="nav-link"> <CarWidget /></Link>
+                        </Box>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
                                 {navLinks.map((link, index) => (
                                     <Nav.Link key={index} href={link.to}>{link.label}</Nav.Link>
                                 ))}
-                                <Box display="flex" alignItems="center">
-                                    <Link to={"/cart"} className="nav-link">Carrito</Link>
-                                    <CarWidget />
-                                </Box>
+
                             </Nav>
                         </Navbar.Collapse>
                     </Container>

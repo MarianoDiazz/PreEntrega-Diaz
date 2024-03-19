@@ -83,39 +83,43 @@ const Cart = () => {
             </Heading>
 
             {cart.length > 0 ? (
-                <Table variant="simple">
-                    <Thead>
-                        <Tr>
-                            <Th>Producto</Th>
-                            <Th>Talle</Th>
-                            <Th>Precio</Th>
-                            <Th>Cantidad</Th>
-                            <Th>Precio total</Th>
-                            <Th>Eliminar</Th>
-                        </Tr>
-                    </Thead>
-
-                    <Tbody>
-                        {cart.map((p) => (
-                            <Tr key={p.id}>
-                                <Td>{p.titulo}</Td>
-                                <Td>{p.selectedTalle}</Td>
-                                <Td>${p.precio}</Td>
-                                <Td>
-                                    <Button onClick={() => handleUpdateQuantity(p.id, p.contador - 1, p.titulo)}>-</Button>
-                                    {p.contador}
-                                    <Button onClick={() => handleUpdateQuantity(p.id, p.contador + 1, p.titulo)}>+</Button>
-                                </Td>
-                                <Td>${(p.precio * p.contador).toFixed(3)}</Td>
-                                <Td>
-                                    <Button bg="red.400" onClick={() => handleRemoveFromCart(p.id, p.titulo)}>
-                                        <FaTrash />
-                                    </Button>
-                                </Td>
+                <div className="table-container">
+                    <Table variant="simple">
+                        <Thead>
+                            <Tr>
+                                <Th>Producto</Th>
+                                <Th>Talle</Th>
+                                <Th>Precio</Th>
+                                <Th>Cantidad</Th>
+                                <Th>Precio total</Th>
+                                <Th>Eliminar</Th>
                             </Tr>
-                        ))}
-                    </Tbody>
-                </Table>
+                        </Thead>
+
+                        <Tbody>
+                            {cart.map((p) => (
+                                <Tr key={p.id}>
+                                    <Td>{p.titulo}</Td>
+                                    <Td>{p.selectedTalle}</Td>
+                                    <Td>${p.precio}</Td>
+                                    <Td>
+                                        <ButtonGroup>
+                                            <Button onClick={() => handleUpdateQuantity(p.id, p.contador - 1, p.titulo)}>-</Button>
+                                            <Button>{p.contador}</Button>
+                                            <Button onClick={() => handleUpdateQuantity(p.id, p.contador + 1, p.titulo)}>+</Button>
+                                        </ButtonGroup>
+                                    </Td>
+                                    <Td>${(p.precio * p.contador).toFixed(3)}</Td>
+                                    <Td>
+                                        <Button bg="red.400" onClick={() => handleRemoveFromCart(p.id, p.titulo)}>
+                                            <FaTrash />
+                                        </Button>
+                                    </Td>
+                                </Tr>
+                            ))}
+                        </Tbody>
+                    </Table>
+                </div>
             ) : (
                 <Box textAlign="center" p={8}>
                     <Text fontWeight="bold" fontSize="lg">

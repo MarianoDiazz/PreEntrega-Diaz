@@ -9,7 +9,7 @@ const CarWidget = () => {
     return (
         <Box p="5px" mr="20px">
             <Icon as={FiShoppingCart} fontSize="2rem" />
-            <Text fontSize="20px" display="inline" fontWeight="bold" bg="red.300" p="2px" borderRadius="15px">{quantityInCart()}</Text>
+            <Text fontSize="20px" display="inline-block" w='1.5rem' textAlign='center' fontWeight="bold" bg="teal.300" p="px" borderRadius="50%">{quantityInCart()}</Text>
         </Box>
 
     );
